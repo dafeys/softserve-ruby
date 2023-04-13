@@ -12,8 +12,7 @@ one_two_three {|number| puts number * 10}
 # explicit block
 
 def explicit_block(&block)
-  block.call
-  #yield
+  block.call  #same as yield
 end
 
 explicit_block { puts "Explicit block" }
@@ -22,27 +21,29 @@ puts
 
 def outer(&block)
   block.call
-  block
+  block # return block
 end
 
-variable = outer {puts'Block'}
+variable = outer {puts'Block for outer method'}
 variable.call
 puts
 
 
-# example 1
+# arguments in blocks
+# example 1 implicit block
 def number_order(order)
-  yield order
+  yield order  # also return result of block execution
 end
 
 puts number_order(3){|i| 2**i}
 
-# example 2
+# example 2 explisit block
 def number_order(order, &block)
   block.call(order)
 end
 
 puts number_order(3){|i| 2**i}
+puts
 
 # block_given?
 # example 1 - no arg
@@ -57,11 +58,12 @@ puts
 
 # example 2 - explicit block
 def explicit_block(&block)
-  return 'other part of code' unless block_given?
-  block.call
+  return 'part of code when no block' unless block
+  block.call  # also return
 end
 
 explicit_block {puts 'Explicit block called'}
+explicit_block
 
 puts explicit_block
 puts
@@ -74,15 +76,14 @@ def do_something_with_block
   end
 end
 
-do_something_with_block{|i=0| puts "Block with #{i}"}
-
+do_something_with_block{|i=0| puts "Block with i = #{i}"}
 do_something_with_block
 puts
 
 
 # example 3 - two methods
 def adult?(number)
-  number >= 18
+  number >= 18  # return true if number >= 18
 end
 
 def accessed?(role)
@@ -92,17 +93,17 @@ end
 def print_info(text)
   return unless block_given?
 
-  if yield
+  if yield  # if block return true
     puts text
   else
-    puts 'Infirmation is not available'
+    puts 'Infirmation is not available'  # if block return false
   end
 end
 
 age = 18
 role = 'user'
 
-print_info('Text') { adult?(age) }
-print_info('Text') { accessed?(role) }
+print_info('Text to method') { adult?(age) }
+print_info('Text to method') { accessed?(role) }
 print_info('Some text') { adult?(age) || accessed?(role)}
-print_info('Text')
+print_info('Text to method')  # exit by return
