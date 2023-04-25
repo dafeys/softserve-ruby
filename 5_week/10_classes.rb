@@ -45,7 +45,7 @@ p obj1.instance_variable_get('@instance_var')
 puts
 
 
-#==== class method
+#==== class methods
 class Car
   @@count = 0
 
@@ -84,6 +84,7 @@ puts Car.class_variable_get('@@count')
 
 car1.move_ahead
 p Car.total
+puts
 
 
 #==== self
@@ -104,6 +105,7 @@ class Ghost2
 end
 
 p Ghost2.reflect == Ghost2  # true
+puts
 
 
 class Example
