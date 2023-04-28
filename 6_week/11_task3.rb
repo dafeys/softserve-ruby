@@ -43,7 +43,7 @@ class Site
 
   private
 
-  def correct(str)
+  def self.correct(str)
     true_url = ''
     str.each_char do |char|
       if char == ' '

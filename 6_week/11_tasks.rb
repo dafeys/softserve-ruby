@@ -104,7 +104,7 @@ class Site
   end
 
   def go_to(url)
-    true_url = correct(url)
+    true_url = Site.correct(url)
     return unless @current_url != "#{HOME_URL}/#{true_url}"
 
     @current_url = "#{HOME_URL}/#{true_url}"
@@ -135,7 +135,7 @@ class Site
 
   private
 
-  def correct(str)
+  def self.correct(str)
     true_url = ''
     str.each_char do |char|
       if char == ' '
