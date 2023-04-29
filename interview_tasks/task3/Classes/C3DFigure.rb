@@ -1,6 +1,3 @@
-require_relative('./CuboidBase')
-require_relative('./CylinderBase')
-
 # class of a volumetric figure: cylinder or cuboid
 class C3DFigure
   def initialize(type, base, figure_height)
