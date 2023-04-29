@@ -1,12 +1,8 @@
 # class of a volumetric figure: cylinder or cuboid
 class C3DFigure
-  def initialize(type, base, figure_height)
-    @base_square = type.new(base).square
-    @figure_height = figure_height
-  end
+attr_reader :volume
 
-  def volume
-    @base_square * @figure_height.to_f
+  def initialize(type, base, figure_height)
+    @volume = type.new(base).square * figure_height
   end
 end
-
