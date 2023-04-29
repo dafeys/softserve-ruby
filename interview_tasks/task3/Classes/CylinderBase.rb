@@ -1,5 +1,5 @@
 # cylinder base class
-class CylinderBase
+class Cylinder
   def initialize(radius)
     @radius = radius
   end

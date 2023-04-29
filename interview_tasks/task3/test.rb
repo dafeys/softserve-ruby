@@ -1,10 +1,7 @@
 require_relative('./Classes/C3DFigure')
 
+f1 = C3DFigure.new(Cylinder, 5, 4)
+f2 = C3DFigure.new(Cuboid, 4, 4)
+puts f1.volume
+puts f2.volume
 
-cylinder = C3DFigure.new('cylinder', 2, 5)
-cuboid = C3DFigure.new('cuboid', 4, 3)
-ball = C3DFigure.new('ball', 4, 5)
-
-puts cuboid.volume #=> 48.0
-puts cylinder.volume #=> 62.83185307179586
-puts ball.volume #=> Wrong type of figure, the type of figure can be: cylinder, cuboid

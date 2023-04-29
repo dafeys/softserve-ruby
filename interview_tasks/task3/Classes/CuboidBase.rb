@@ -1,5 +1,5 @@
 # Cuboid base class
-class CuboidBase
+class Cuboid
   def initialize(side)
     @side = side
   end
