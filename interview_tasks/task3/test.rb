@@ -1,7 +1,8 @@
 require_relative('./Classes/C3DFigure')
 
-f1 = C3DFigure.new(Cylinder, 5, 4)
-f2 = C3DFigure.new(Cuboid, 4, 4)
-puts f1.volume
-puts f2.volume
+cylinder = C3DFigure.new(Cylinder, 5, 4)
+cuboid = C3DFigure.new(Cuboid, 4, 4)
+
+puts cylinder.volume #=> 314.1592653589793
+puts cuboid.volume #=> 64.0
 
